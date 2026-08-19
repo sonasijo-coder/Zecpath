@@ -6,7 +6,8 @@ from rest_framework import status
 from .models import Job, Application
 from .serializers import JobSerializer
 
-from accounts.models import Employer
+#from accounts.models import Employer
+from apps.accounts.models import Employer
 
 # Create your views here.
 

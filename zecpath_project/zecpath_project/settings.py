@@ -16,14 +16,29 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+import environ
+import os
+
+env = environ.Env()
+
+# BASE_DIR.parent = JobPortal root folder
+env_file = os.path.join(BASE_DIR.parent, '.env')
+environ.Env.read_env(env_file)
+
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env.bool('DEBUG', default=False)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#!0!i_&vfpe$#fv_@2zm-r&149@b6*y#swqa%2$z%qbs9da*v('
+
+#SECRET_KEY = 'django-insecure-#!0!i_&vfpe$#fv_@2zm-r&149@b6*y#swqa%2$z%qbs9da*v('
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -38,11 +53,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'jobs',# day 4 appname
+    #'jobs',# day 4 appname
 
     'rest_framework', # day5 drf set up
 
-    'accounts', #day6 app creation
+    #'accounts', #day6 app creation
+
+    'apps.jobs',
+    'apps.accounts', # day7
 
 
 ]

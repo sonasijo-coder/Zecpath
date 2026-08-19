@@ -19,5 +19,8 @@ from django.urls import path , include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('jobs.urls')) #ap name adjust cheyyuka
+   # path('api/', include('jobs.urls')) #app name adjust cheyyuka
+   path('api/',include("apps.jobs.urls"))# 'jobs.urls' maatti 'apps.jobs.urls' aakkuka
+    # 'accounts' app-nu urls undenkil athum ithupole update cheyyuka:
+    # path('api/accounts/', include('apps.accounts.urls')),
 ]
